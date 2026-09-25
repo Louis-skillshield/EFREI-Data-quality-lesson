@@ -17,7 +17,7 @@ Avant de commencer, vous devez avoir installé :
 Clonez le repository :
 
 ```bash
-git clone <URL_DU_REPOSITORY>
+git clone https://github.com/Louis-skillshield/EFREI-Data-quality-lesson.git
 ```
 
 Puis placez-vous dans le dossier du projet :
