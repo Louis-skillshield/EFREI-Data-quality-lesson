@@ -1,0 +1,22 @@
+[project]
+name = "sql-data-quality-training"
+version = "0.1.0"
+description = "Training project for SQL, PostgreSQL, data quality and pytest"
+requires-python = ">=3.11"
+dependencies = [
+    "psycopg[binary]>=3.2",
+    "python-dotenv>=1.0"
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0"
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+testpaths = [
+    "tests"
+]
