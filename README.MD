@@ -23,7 +23,7 @@ git clone https://github.com/Louis-skillshield/EFREI-Data-quality-lesson.git
 Puis placez-vous dans le dossier du projet :
 
 ```bash
-cd efrei-python-cours-2
+cd EFREI-Data-quality-lesson
 ```
 
 ---
@@ -52,13 +52,13 @@ Vous n'avez pas besoin de créer manuellement un environnement virtuel avec `ven
 
 Le projet utilise un fichier `.env` pour stocker les informations de connexion à PostgreSQL.
 
-À la racine du projet, créez un fichier :
+À la racine du projet, copiez le fichier d'exemple :
 
-```text
-.env
+```bash
+cp .env.example .env
 ```
 
-avec les informations correspondant à votre installation PostgreSQL :
+puis complétez `.env` avec les informations correspondant à votre installation PostgreSQL :
 
 ```env
 DB_HOST=localhost
@@ -73,7 +73,7 @@ DB_PASSWORD=votre_mot_de_passe
 ```env
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=efrei_sql
+DB_NAME=immotrust_db
 DB_USER=postgres
 DB_PASSWORD=postgres
 ```
@@ -88,10 +88,16 @@ Adaptez les valeurs à votre configuration.
 
 Avant de lancer le projet, vérifiez que PostgreSQL est démarré et que la base indiquée dans `.env` existe.
 
-Par exemple :
+Si elle n'existe pas encore, créez-la :
 
 ```bash
-psql -U postgres -d efrei_sql
+createdb -U postgres immotrust_db
+```
+
+Puis vérifiez que vous pouvez vous y connecter :
+
+```bash
+psql -U postgres -d immotrust_db
 ```
 
 Puis quittez PostgreSQL :
@@ -121,7 +127,7 @@ Le programme va :
 Si le programme vous demande :
 
 ```text
-réinitialisation des tables acceptez vous de supprimer la donnée existante. y/n
+Réinitialisation des tables : acceptez-vous de supprimer les données existantes ? y/n
 ```
 
 répondez :
@@ -149,6 +155,8 @@ uv run python main.py
 ```
 
 ### Lancer les tests
+
+Les tests seront ajoutés au projet pendant le cours.
 
 ```bash
 uv run pytest
@@ -207,7 +215,7 @@ Créez-la dans PostgreSQL avant de lancer le projet.
 Le fichier `.env` doit se trouver à la racine du projet :
 
 ```text
-efrei-python-cours-2/
+EFREI-Data-quality-lesson/
 ├── .env
 ├── main.py
 ├── pyproject.toml

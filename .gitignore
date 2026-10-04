@@ -1,2 +1,9 @@
 .env
 __pycache__/
+.venv/
+.pytest_cache/
+.DS_Store
+
+# Corrigés réservés au formateur (publiés plus tard dans le cours)
+sql/seed_solution.sql
+sql/correct_create_table.sql

@@ -14,26 +14,27 @@ def main():
         print("Port :", connection.info.port)
 
         connection.close()
-        connection.close()
 
     except Exception as e:
         print("Échec de la connexion.")
         print(f"Erreur : {e}")
+        print("Vérifiez votre fichier .env et que PostgreSQL est démarré.")
+        quit()
 
     accept_data_suppression = input(
-        "réinitialisation des tables acceptez vous de supprimer la donnée existante. y/n \n"
+        "Réinitialisation des tables : acceptez-vous de supprimer les données existantes ? y/n \n"
     )
     if accept_data_suppression == "n":
-        print("Il est nécéssaire de supprimer la donnée pour suivre le cours")
+        print("Il est nécessaire de supprimer les données pour suivre le cours.")
         quit()
     elif accept_data_suppression == "y":
         try:
             execute_sql_file("sql/delete_table.sql")
-            print("donnée supprimée avec succès")
+            print("Données supprimées avec succès.")
         except Exception as e:
-            print(f"Erreur lors de la suppression de la donnée: {e}")
+            print(f"Erreur lors de la suppression des données : {e}")
     else:
-        print("Veuillez séléctionner une valeur y ou n")
+        print("Veuillez saisir y ou n.")
         quit()
 
     print("Création des tables :")
@@ -48,7 +49,7 @@ def main():
 
         with connection.cursor() as cursor:
             cursor.execute("SELECT COUNT(*) FROM proprietaire;")
-            print("Proprietaires :", cursor.fetchone()[0])
+            print("Propriétaires :", cursor.fetchone()[0])
 
             cursor.execute("SELECT COUNT(*) FROM logement;")
             print("Logements :", cursor.fetchone()[0])
