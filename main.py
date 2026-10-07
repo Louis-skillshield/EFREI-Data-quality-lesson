@@ -41,6 +41,8 @@ def main():
     execute_sql_file("sql/create_schema.sql")
     print("Insertion des données...")
     execute_sql_file("sql/seed.sql")
+    print("Correction des anomalies...")
+    execute_sql_file("sql/fix_anomalies.sql")
     print("Base de données initialisée avec succès.")
 
     try:
